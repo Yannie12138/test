@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>妍妍最棒</title>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: '华康娃娃体W5(P)';
+            src: url('C:\Windows\Fonts/华康娃娃体W5(P).ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'seagle';
+            src: url('C:/Windows/Fonts/seagle.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        #timelist {
+            display: flex;
+            font-size: 16px;
+            font-weight: lighter;
+            margin-bottom: 0px;
+            color: #3f2068;
+            font-family: 'seagle', sans-serif;  
+        }
+        body {
+            font-family: '华康娃娃体W5(P)', sans-serif;
+            background-color: #ffeff9;
+        }
+        .text-line {
+            font-size: 30px;
+            line-height: 1.2;
+            font-family: '华康娃娃体W5(P)', sans-serif; /* 第一种字体 */
+            color: #a378db
+        }
+        .clearfix {
+            content: "";
+            clear: both;
+            display: flex;
+            flex-wrap: nowrap;
+            width: 525px;
+            margin-top: 16px;
+        }
+        #image-container  {
+            flex: 7;
+        }
+        .text-line2 {
+            flex: 1.33;
+        }
+        .progress-container {
+            width: 520px;
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            height: 100%;
+            border-radius: 20px;
+            background-color: #cfc0e3 ; 
+        }
+        .filled {
+            background: linear-gradient(to right, #b789f2, #ec88a3);
+            border-radius: 20px;
+            height: 100%;
+        }
+        .time-display {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .time-display2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #date {
+            font-size: 22px;
+            font-weight: lighter;
+            margin-top: 10px;
+            margin-bottom: 0px;
+            color: #836ba2;
+            text-align: center;
+        }
+        #current-time,#hours,#minutes {
+            font-size: 72px;
+            font-weight: lighter;
+            margin-top: 10px;
+            margin-bottom: 0px;
+            color: #836ba2;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 520px; 
+            margin-bottom: 28px;   
+        }
+        .centered-text {
+            text-align: center;
+        }
+        .container2 {
+            max-width: 520px; 
+            word-wrap: break-word; 
+            margin-bottom: 5px;
+        }
+        .weekday-container {
+            display: flex;
+            height: 20px;
+            width: 420px;
+            border-radius: 20px;
+            text-align: center; 
+            margin: auto; 
+        }
+        .weekday {
+            flex: 1;
+            padding: 0px;
+            color: #836ba2;
+            font-weight: lighter;
+            font-size: 20px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .current-day {
+            color: #542b7b;
+            font-weight: bold;
+            font-size: 22px;
+            margin-top: 2px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ec88a3;
+            margin: auto;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-line">🤗妍妍最棒！</div>
+    <div class="container">
+        <div id="date"></div>
+        <p id="current-time">
+            <span id="hours"></span>:
+            <span id="minutes"></span>:
+            <span id="seconds" style="font-size: 22px;font-weight: bold;margin-left: 0px;"></span>
+            <span id="amPm" style="font-size: 30px;"></span>
+        </p>
+        <div class="weekday-container">
+            <div class="weekday">S</div>
+            <div class="weekday">M</div>
+            <div class="weekday">T</div>
+            <div class="weekday">W</div>
+            <div class="weekday">T</div>
+            <div class="weekday">F</div>
+            <div class="weekday">S</div>
+        </div>    
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar progress-1" id="filled-bar1">
+            <div class="filled" id="filled1"></div>
+        </div>
+        <div class="progress-bar progress-2" id="filled-bar2">
+            <div class="filled" id="filled2"></div>
+        </div>
+        <div class="progress-bar progress-3" id="filled-bar3">
+            <div class="filled" id="filled3"></div>
+        </div>   
+        <div class="progress-bar progress-4" id="filled-bar4">
+            <div class="filled" id="filled4"></div>
+        </div>  
+    </div>
+    <div id="timelist">
+        <div style="margin-right: 106px;">9点</div>
+        <div style="margin-right: 20px;">12:10</div>
+        <div style="margin-right: 136px;">2:20</div>
+        <div style="margin-right: 8px;">6:10</div>
+        <div style="margin-right: 8px;">7:10</div>
+        <div style="margin-right: 8px;">8:10</div>
+        <div style="margin-right: 8px;">9:10</div>
+        <div style="margin-right: 8px;">10:10</div>    
+    </div>
+    <div class="container2">
+        <div class="time-display" id="time-display"></div>
+    </div>
+
+    <div class="clearfix">
+        <div id="image-container">
+        </div>
+        <div class="text-line2">❄️☃️💕🦔</div>
+    </div>
+    <script>
+        function updateCurrentTime() {
+            var hoursElement = document.getElementById('hours');
+            var minutesElement = document.getElementById('minutes');
+            var secondsElement = document.getElementById('seconds');
+            var amPmElement = document.getElementById('amPm');         
+            var now = new Date();
+            var hours = now.getHours() % 12; 
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+            hoursElement.textContent = hours;
+            minutesElement.textContent = minutes;
+            secondsElement.textContent = seconds;
+            amPmElement.textContent = amPm;
+        }
+        function updateDateDisplay() {            
+            var dateDisplay = document.getElementById('date');
+            var weekdays = ['Sun.', 'Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.'];
+            var today = new Date().getDay(); 
+            var today2 = new Date();
+
+            var weekdayDivs = document.querySelectorAll('.weekday');
+            weekdayDivs.forEach(function(div, index) {
+                div.innerText = weekdays[index];
+                if (index === today) {
+                    div.classList.add('current-day');
+                }
+            });
+            var weekdayDivs = document.querySelectorAll('.weekday');
+            weekdayDivs.forEach(function(div, index) {
+                if (index === today) {
+                    div.innerText = weekdays[index];
+                    div.classList.add('current-day');
+                    var dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    div.appendChild(dot);
+                } else {
+                    div.innerText = ['S', 'M', 'T', 'W', 'T', 'F', 'S'][index];
+                }
+            });
+            var currentDayDiv = weekdayDivs[today];
+            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+            var formattedDate = today2.toLocaleDateString('zh-CN', options);
+            dateDisplay.innerText = formattedDate;
+        }
+        function updateProgressBar() {
+            var progressBar1 = document.getElementById('filled1');
+            var progressBar2 = document.getElementById('filled2');
+            var progressBar3 = document.getElementById('filled3');
+            var progressBar4 = document.getElementById('filled4');
+            var timeDisplay = document.getElementById('time-display');
+            var now = new Date();
+            var timeRanges = [
+                {start: getDateTime(9, 0 ,0), end: getDateTime(12, 10 ,0)},
+                {start: getDateTime(14, 20 ,0), end: getDateTime(18, 10 ,0)},
+                {start: getDateTime(19, 10 ,0), end: getDateTime(20, 10 ,0)},
+                {start: getDateTime(21, 10 ,0), end: getDateTime(22, 10 ,0)}
+            ];
+            var totalProgressBarWidth = 520; 
+            var numProgressBars = 4; 
+            var progressBarSpacing = 16; 
+            var progressBarLength = totalProgressBarWidth - (progressBarSpacing * (numProgressBars - 1))
+            var totalTime = 0;
+            for (var i = 0; i < timeRanges.length; i++) {
+                timeRanges[i]["duration"] = timeRanges[i].end - timeRanges[i].start;
+                totalTime += timeRanges[i]["duration"];
+            }
+            var length = []; 
+            for (var i = 0; i < timeRanges.length; i++) {
+                length[i] = Math.floor(progressBarLength * timeRanges[i]["duration"] / totalTime);
+
+            }
+            document.querySelector('.progress-1').style.width = length[0] + 'px';
+            document.querySelector('.progress-2').style.width = length[1] + 'px';
+            document.querySelector('.progress-3').style.width = length[2] + 'px';
+            document.querySelector('.progress-4').style.width = length[3] + 'px';
+            var totalPassedTime = 0;
+            for (var i = 0; i < timeRanges.length; i++) {
+                if (now > timeRanges[i].end) {
+                    totalPassedTime += timeRanges[i].end - timeRanges[i].start;
+                } else if (now >= timeRanges[i].start) {
+                    totalPassedTime += now - timeRanges[i].start;
+                    break;
+                }
+            }
+            var PassedTime = [];
+            for (var i = 0; i < timeRanges.length; i++) {
+                if (now >= timeRanges[i].start && now <= timeRanges[i].end) {
+                    PassedTime[i] = now - timeRanges[i].start;
+                } else if (now >= timeRanges[i].end) {
+                    PassedTime[i] = timeRanges[i]["duration"]
+                } else PassedTime[i] = 0;
+                
+            }
+            progressBar1.style.width = PassedTime[0]/timeRanges[0]["duration"]*100+ '%';
+            progressBar2.style.width = PassedTime[1]/timeRanges[1]["duration"]*100 + '%';
+            progressBar3.style.width = PassedTime[2]/timeRanges[2]["duration"]*100 + '%';
+            progressBar4.style.width = PassedTime[3]/timeRanges[3]["duration"]*100 + '%';
+            var hours = Math.floor(totalPassedTime / (60 * 60 * 1000));
+            var minutes = Math.floor((totalPassedTime % (60 * 60 * 1000)) / (60 * 1000));
+            var seconds = Math.floor((totalPassedTime % (60 * 1000)) / 1000);
+            timeDisplay.innerText = '今日可用时间已过：' + hours + ' 小时 ' + minutes + ' 分钟 ' + seconds + ' 秒了喵😿';
+            if (now < getDateTime(9, 0)) {
+                timeDisplay.innerText = "一寸光阴一寸金,😏宝贝妞今天起得很早噢，快去吃早餐，然后想想今天该做什么吧😣";
+            } else if (now > getDateTime(12, 10 ,0) && now < getDateTime(13, 10 ,0)) {
+                timeDisplay.innerText = "吃饭了吃饭了😋";
+            } else if (now > getDateTime(13, 10 ,0) && now < getDateTime(14, 10 ,0)) {
+                timeDisplay.innerText = "快睡觉充电一小时🥺🦢";
+            } else if (now > getDateTime(18, 10 ,0) && now < getDateTime(19, 10 ,0)) {
+                timeDisplay.innerText = "饿死了饿死了👿"
+            } else if (now > getDateTime(22, 10 ,0)) {
+                timeDisplay.innerText = "已过9小时🐎, 😊今日余额不足📢请早睡充电";
+            }
+            setTimeout(updateProgressBar, 1000);
+        }
+
+        function getDateTime(hours, minutes ,seconds) {
+            var dateTime = new Date();
+            dateTime.setHours(hours);
+            dateTime.setMinutes(minutes);
+            dateTime.setSeconds(seconds);
+            return dateTime;
+        }
+        window.onload = function() {
+            updateDateDisplay();
+            updateProgressBar();
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000); 
+        };
+        var imageContainer = document.getElementById('image-container');
+        var now = new Date();       
+        function addImage(src="star.png",alt="小星星") {
+            var img = document.createElement('img');
+            img.src = src;
+            img.alt = alt;
+            img.style.maxWidth = '5%'; 
+            imageContainer.appendChild(img);
+            img.style.marginRight = '8px';
+        }
+        if (now > getDateTime(10, 0 ,0) && now < getDateTime(11, 0 ,0)) { 
+            addImage(src="star.png",alt="小星星");
+        } else if (now > getDateTime(11, 0 ,0) && now < getDateTime(12, 0 ,0)) {
+            for (var i1 = 0; i1 < 2; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(12, 0 ,0) && now < getDateTime(15, 10 ,0)) {
+            for (var i1 = 0; i1 < 3; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(15, 10 ,0) && now < getDateTime(16, 10 ,0)) {
+            for (var i1 = 0; i1 < 4; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(16, 10 ,0) && now < getDateTime(17, 10 ,0)) {
+            for (var i1 = 0; i1 < 5; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(17, 10 ,0) && now < getDateTime(19, 10 ,0)) {
+            for (var i1 = 0; i1 < 6; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(19, 10 ,0) && now < getDateTime(21, 10 ,0)) {
+            for (var i1 = 0; i1 < 7; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(21, 10 ,0) && now < getDateTime(22, 10 ,0)) {
+            for (var i1 = 0; i1 < 8; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        } else if (now > getDateTime(22, 10 ,0)) {
+            for (var i1 = 0; i1 < 9; i1++) {
+            addImage(src="star.png",alt="小星星");
+            };
+        }
+    </script>
+</body>
+</html>
